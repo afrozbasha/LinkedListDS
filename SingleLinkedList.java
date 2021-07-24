@@ -13,6 +13,7 @@ public class SingleLinkedList {
         }
     }
 
+
     //Represent the head and tail of the singly linked list
     private Node head = null;
     private Node tail = null;
@@ -45,13 +46,27 @@ public class SingleLinkedList {
 
     }
 
+    //Add nodes to the list at Beginning
+     public void addToBegin(int x){
+        if (head == null){
+            this.head = new Node(x);
+        }else{
+            Node temp = new Node(x);
+            temp.next = head;
+            head = temp;
+        }
+     }
+
+
+
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
 
-        //Add nodes to the list
-        slList.addNode(56);
-        slList.addNode(30);
-        slList.addNode(70);
+        //Add nodes to the list at Beginning
+        slList.addToBegin(70);
+        slList.addToBegin(30);
+        slList.addToBegin(56);
+
 
         //Call the Displays Method
         slList.displayList();
