@@ -48,25 +48,38 @@ public class SingleLinkedList {
 
     //Add nodes to the list at Beginning
      public void addToBegin(int x){
+        Node node = new Node(x);
         if (head == null){
-            this.head = new Node(x);
+            this.head = node;
         }else{
-            Node temp = new Node(x);
-            temp.next = head;
-            head = temp;
+            node.next = head;
+            head = node;
         }
      }
 
+    //Add nodes to the list at End
+    public void addToEnd(int x){
+        Node node = new Node(x);
+        if (head == null){
+            this.head = node;
+        }else{
+            Node temp = head;
+            while (temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = node;
+        }
+    }
 
+    
 
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
 
-        //Add nodes to the list at Beginning
-        slList.addToBegin(70);
-        slList.addToBegin(30);
-        slList.addToBegin(56);
-
+        //Add nodes to the list at End
+        slList.addToEnd(70);
+        slList.addToEnd(30);
+        slList.addToEnd(56);
 
         //Call the Displays Method
         slList.displayList();
